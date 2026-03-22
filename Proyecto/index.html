@@ -5,42 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MicroMercado Koki</title>
     <link rel="stylesheet" href="css/styles.css">
-
 </head>
-  <body>
+<body>
 
 <div id="header"></div>
-<div id="sidebar"></div>
 
-<main id="contenido">
-  <h2>Productos disponibles</h2>
-  <div class="producto">
-    <div class="imagenProductoContenedor">
-      <img src="https://picsum.photos/id/20/300/300" alt="Producto de ejemplo" class="imagenProducto">
-    </div>
-    <div class="productoInformacionContenedor">
-      <h3 class="productoNombre">Café Especial</h3>
-      <p class="productoPrecio">$12.900</p>
-    </div>
-  </div>
-</main>
+<div class="layout-principal">
+    <div id="sidebar"></div>
+
+    <main id="contenido">
+        <h2>Productos disponibles</h2>
+        <hr class="separador">
+
+        <section>
+            <h2> Productos cargados con plantilla (template + fetch)</h2>
+            <div id="productos-dinamicos" class="productos-grid"></div>
+        </section>
+
+        <hr class="separador">
+
+        <section>
+            <h2> Productos con Web Component</h2>
+            <div id="componentes-web-container" class="productos-grid"></div>
+        </section>
+
+        <template id="plantilla-producto">
+            <div class="producto-tarjeta">
+                <div class="producto-imagen-contenedor">
+                    <img class="producto-imagen" src="" alt="">
+                </div>
+                <div class="producto-info">
+                    <h3 class="producto-nombre"></h3>
+                    <p class="producto-precio"></p>
+                    <p class="producto-descripcion"></p>
+                </div>
+            </div>
+        </template>
+    </main>
+</div>
 
 <div id="footer"></div>
 
-<template id="productoTemplate" >
-  <div class="producto">
-    <div class="imagenProductoContenedor">
-      <img src="https://picsum.photos/id/20/300/300" alt="Producto de ejemplo" class="imagenProducto">
-    </div>
-    <div class="productoInformacionContenedor">
-      <h3 class="productoNombre">Café Especial</h3>
-      <p class="productoPrecio">$12.900</p>
-    </div>
-  </div>
-</template>
-
 <script src="js/main.js"></script>
-<script src="js/components.js"></script>
+<script src="js/componentes.js"></script>
 
 </body>
 </html>

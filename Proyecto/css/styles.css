@@ -1,5 +1,12 @@
+/* ========== RESET GLOBAL ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
 
-/*nav*/ 
+/* ========== HEADER ========== */
 .header {
     background: rgb(68, 58, 149);
     color: white;
@@ -32,31 +39,43 @@
 .nav-links a:hover {
     text-decoration: underline;
 }
-/*sidbar*/
-.sidebar {
-    width: 220px;
+
+/* ========== SIDEBAR (estilos base y para el contenido inyectado) ========== */
+/* Contenedor principal donde se carga el sidebar */
+#sidebar {
+    width: 260px;
+    flex-shrink: 0;
     background: #1e1e2f;
-    color: white;
-    min-height: 100vh;
-    padding: 20px 10px;
+    border-radius: 12px;
+    overflow: hidden;
+    min-height: calc(100vh - 80px);
 }
 
-.sidebar-title {
+/* El contenido interno del sidebar (clase .sidebar que viene del fetch) */
+#sidebar .sidebar {
+    width: 100%;
+    background: #1e1e2f;
+    color: white;
+    padding: 20px 10px;
+    margin: 0;
+}
+
+#sidebar .sidebar-title {
     text-align: center;
     margin-bottom: 20px;
     font-size: 20px;
 }
 
-.sidebar-menu {
+#sidebar .sidebar-menu {
     list-style: none;
     padding: 0;
 }
 
-.sidebar-menu li {
+#sidebar .sidebar-menu li {
     margin: 10px 0;
 }
 
-.sidebar-menu a {
+#sidebar .sidebar-menu a {
     display: block;
     padding: 12px;
     color: white;
@@ -65,11 +84,12 @@
     transition: 0.3s;
 }
 
-.sidebar-menu a:hover {
+#sidebar .sidebar-menu a:hover {
     background: #404140;
     padding-left: 18px;
 }
-/*footer*/
+
+/* ========== FOOTER ========== */
 .footer {
     background: #111;
     color: white;
@@ -120,7 +140,8 @@
     font-size: 13px;
     color: #aaa;
 }
-/* Estilos para la tarjeta de producto */
+
+/* ========== PRODUCTOS (estilo original) ========== */
 .producto {
     background: #fff;
     border-radius: 12px;
@@ -129,7 +150,7 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     max-width: 280px;
     width: 100%;
-    margin: 1rem auto;
+    margin: 1rem 0;  /* se cambia de 'auto' a '0' para alinear a la izquierda */
     font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 }
 
@@ -138,10 +159,9 @@
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* Contenedor de la imagen (parte superior) */
 .imagenProductoContenedor {
     width: 100%;
-    aspect-ratio: 1 / 1; /* Proporción cuadrada, ajusta según necesites */
+    aspect-ratio: 1 / 1;
     overflow: hidden;
     background-color: #f5f5f5;
 }
@@ -149,7 +169,7 @@
 .imagenProducto {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* La imagen cubre el contenedor sin deformarse */
+    object-fit: cover;
     display: block;
     transition: transform 0.3s ease;
 }
@@ -158,7 +178,6 @@
     transform: scale(1.03);
 }
 
-/* Contenedor de la información (nombre y precio) */
 .productoInformacionContenedor {
     padding: 1rem;
     text-align: center;
@@ -176,113 +195,163 @@
 .productoPrecio {
     font-size: 1.2rem;
     font-weight: 700;
-    color: #2c7a4d; /* Color verde para el precio */
+    color: #2c7a4d;
     margin: 0;
     letter-spacing: -0.3px;
 }
 
-/* Ajuste para que las tarjetas se vean bien en pantallas pequeñas */
-@media (max-width: 768px) {
-    .producto {
-        max-width: 240px;
-    }
-    .productoNombre {
-        font-size: 1rem;
-    }
-    .productoPrecio {
-        font-size: 1.1rem;
-    }
+/* ========== NUEVAS SECCIONES: plantilla + web components ========== */
+.productos-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1.5rem;
 }
 
-/*Login*/
-* {
-  margin: 0;
-  padding: 0;
-  font-family: Arial;
-  box-sizing: border-box;
+.producto-tarjeta {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 8px 0 12px -6px rgba(0,0,0,0.2), -8px 0 12px -6px rgba(0,0,0,0.2), 0 4px 8px rgba(0,0,0,0.1); /* Sombreado lateral */
+    transition: transform 0.2s ease;
+    max-width: 240px;      /* Más pequeña */
+    width: 100%;
 }
 
+.producto-tarjeta:hover {
+    transform: translateY(-5px);
+}
+
+.producto-imagen-contenedor {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    max-height: 180px;     /* Imagen más pequeña */
+}
+
+.producto-imagen {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.producto-info {
+    padding: 1rem;
+    text-align: center;
+}
+
+.producto-nombre {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0 0 0.5rem;
+    color: #333;
+}
+
+.producto-precio {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #2c7a4d;
+    margin: 0 0 0.5rem;
+}
+
+.producto-descripcion {
+    font-size: 0.85rem;
+    color: #666;
+    margin: 0;
+}
+
+.separador {
+    margin: 2rem 0;
+    border: 0;
+    border-top: 1px solid #ddd;
+}
+
+/* ========== LOGIN ========== */
 .container {
-  width: 100%;
-  height: 100vh;
-  background: #D0D0D0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    width: 100%;
+    height: 100vh;
+    background: #D0D0D0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .form-content {
-  width: 100%;
-  max-width: 450px;
-  background: #2C2F35;
-  padding: 50px;
-  border-radius: 20px;
+    width: 100%;
+    max-width: 450px;
+    background: #2C2F35;
+    padding: 50px;
+    border-radius: 20px;
 }
+
 .form-content h1 {
-  color: white;
-  text-align: center;
-  margin-bottom: 40px;
+    color: white;
+    text-align: center;
+    margin-bottom: 40px;
 }
 
 .input-field {
-  background: #515966;
-  margin: 10px 0;
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  transition: max-height 0.5s;
+    background: #515966;
+    margin: 10px 0;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    transition: max-height 0.5s;
 }
 
 .input-field i {
-  margin-left: 10px;
-  color: #04BD7D;
+    margin-left: 10px;
+    color: #04BD7D;
 }
 
 input {
-  width: 100%;
-  padding: 15px;
-  border: none;
-  outline: none;
-  background: transparent;
-  color: white;
+    width: 100%;
+    padding: 15px;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: white;
 }
 
 input::placeholder {
-  color: white;
+    color: white;
 }
+
 .btn-field {
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 button {
-  padding: 10px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
 }
 
 #signUp {
-  background: #04BD7D;
-  color: white;
+    background: #04BD7D;
+    color: white;
 }
 
 #signIn {
-  background: #999;
-  color: white;
+    background: #999;
+    color: white;
 }
 
 #ingresar {
-  background: #2196f3;
-  color: white;
-  font-weight: bold;
+    background: #2196f3;
+    color: white;
+    font-weight: bold;
 }
 
 button.disable {
-  opacity: 0.5;
+    opacity: 0.5;
 }
 
 .mensaje {
@@ -290,4 +359,243 @@ button.disable {
     font-size: 14px;
     text-align: center;
     margin-top: 10px;
+}
+
+/* ========== LAYOUT PRINCIPAL (sidebar + main) ========== */
+body {
+    margin: 0;
+    background: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+#header {
+    flex-shrink: 0;
+    margin-bottom: 0;
+}
+
+.layout-principal {
+    display: flex;
+    align-items: stretch;   /* Para que sidebar y main tengan la misma altura */
+    gap: 0;                 /* Sin separación lateral */
+    margin: 0;              /* Sin margen exterior */
+    padding: 0;             /* Sin relleno lateral */
+    flex: 1;
+    background: #f0f0f0;
+}
+
+#sidebar {
+    width: 260px;
+    flex-shrink: 0;
+    background: #1e1e2f;
+    border-radius: 0;       /* Quita bordes redondeados para que pegue */
+    overflow: hidden;
+    min-height: auto;       /* Altura definida por contenido */
+}
+
+/* Contenido del sidebar (clase .sidebar que viene del fetch) */
+#sidebar .sidebar {
+    background: #1e1e2f;
+    color: white;
+    padding: 20px 10px;
+    margin: 0;
+}
+
+#contenido {
+    flex: 1;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 0;       /* Quita bordes redondeados para que pegue */
+    margin: 0;
+}
+
+#footer {
+    flex-shrink: 0;
+    margin-top: 0;          /* Elimina margen superior */
+}
+
+/* Ajustes para reducir espacios internos en el contenido */
+#contenido h2,
+#contenido h3,
+#contenido section {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.separador {
+    margin: 1rem 0;         /* Reduce el margen vertical de los separadores */
+}
+
+.productos-grid {
+    margin-top: 0.5rem;
+    gap: 1rem;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+    .layout-principal {
+        flex-direction: column;
+    }
+    #sidebar {
+        width: 100%;
+        border-radius: 0;
+    }
+    .productos-grid {
+        justify-content: center;
+    }
+    .producto {
+        max-width: 240px;
+    }
+}
+/* Elimina el espacio en la parte inferior */
+#contenido > :last-child {
+    margin-bottom: 0;
+}
+
+.footer {
+    margin-top: 0;   /* Sobrescribe el margin-top: 20px que tenía antes */
+}
+
+/* Mejora tipográfica para los títulos principales */
+#contenido h2 {
+    font-family: 'Poppins', 'Segoe UI', 'Montserrat', system-ui, -apple-system, sans-serif;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 1.2rem;
+    letter-spacing: -0.3px;
+}
+
+/* Ajuste específico para los títulos de sección con emojis */
+#contenido section h2 {
+    font-size: 1.5rem;
+    background: linear-gradient(135deg, #2c3e50, #1e2a3a);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    display: inline-block;
+    width: 100%;
+}
+
+/* Si quieres un color más sobrio, elimina el gradiente y usa color: #2c3e50; */
+
+/* ========== RESTAURAR ESTILOS DEL LOGIN ========== */
+/* Asegura que el login no herede estilos globales no deseados */
+body:has(.container) {
+    background: #D0D0D0;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    background: #D0D0D0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.form-content {
+    width: 100%;
+    max-width: 450px;
+    background: #2C2F35;
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: none;
+    text-align: center;
+}
+
+.form-content h1 {
+    color: white;
+    text-align: center;
+    margin-bottom: 40px;
+    font-family: Arial, sans-serif;
+    font-size: 1.8rem;
+    font-weight: normal;
+    background: none;
+    -webkit-background-clip: unset;
+    color: white;
+}
+
+.input-field {
+    background: #515966;
+    margin: 10px 0;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
+}
+
+.input-field i {
+    margin-left: 10px;
+    color: #04BD7D;
+}
+
+input {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+}
+
+input::placeholder {
+    color: white;
+}
+
+.btn-field {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+button {
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+}
+
+#signUp {
+    background: #04BD7D;
+    color: white;
+}
+
+#signIn {
+    background: #999;
+    color: white;
+}
+
+#ingresar {
+    background: #2196f3;
+    color: white;
+    font-weight: bold;
+}
+
+button.disable {
+    opacity: 0.5;
+}
+
+.mensaje {
+    color: #ff4d4d;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+p a {
+    color: #04BD7D;
+    text-decoration: none;
 }
