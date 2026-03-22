@@ -1,26 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>formulario</title>
+  <title>Login - Micromercado Koki</title>
   <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<body>
-  <div class="container">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
 
+<body>
+
+  <div class="container">
     <div class="form-content">
+
       <h1 id="title">Registro</h1>
 
-
       <form>
-
-
         <div class="input-group">  
 
           <div class="input-field" id="nameInput">
             <i class="fa-solid fa-user"></i>
-            <input type="text" placeholder="Nombre">
+            <input type="text" placeholder="Usuario">
           </div>
 
           <div class="input-field">
@@ -34,19 +33,18 @@
           </div> 
 
           <p>Olvidaste tu contraseña <a href="#">click aqui</a></p>
-
+          <p id="mensaje" class="mensaje"></p>
         </div>
 
         <div class="btn-field">
           <button id="signUp" type="button">Registro</button>
           <button id="signIn" type="button" class="disable">Login</button>
-
+          <button id="ingresar" type="button">Ingresar</button>
         </div>
 
       </form>
 
     </div>
-
   </div>
 
   <script src="js/login.js"></script>
