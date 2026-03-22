@@ -1,3 +1,50 @@
-
-
-
+[
+    {
+        "nombre": "Café Especial",
+        "precio": 12900,
+        "descripcion": "Café de origen colombiano, tueste medio, notas cítricas.",
+        "imagen": "https://picsum.photos/id/20/300/300"
+    },
+    {
+        "nombre": "Aceite de Oliva",
+        "precio": 18500,
+        "descripcion": "Aceite extra virgen, prensado en frío, 500ml.",
+        "imagen": "https://picsum.photos/id/127/300/300"
+    },
+    {
+        "nombre": "Queso Campesino",
+        "precio": 9800,
+        "descripcion": "Queso fresco, ideal para acompañar tus comidas.",
+        "imagen": "https://picsum.photos/id/102/300/300"
+    },
+    {
+        "nombre": "Pan Artesanal",
+        "precio": 4500,
+        "descripcion": "Pan horneado con masa madre, 500g.",
+        "imagen": "https://picsum.photos/id/125/300/300"
+    },
+    {
+        "nombre": "Mermelada de Fresa",
+        "precio": 8900,
+        "descripcion": "Mermelada artesanal con frutos naturales, 250g.",
+        "imagen": "https://picsum.photos/id/108/300/300"
+    },
+    {
+        "nombre": "Galletas Integrales",
+        "precio": 3200,
+        "descripcion": "Galletas de avena y miel, sin azúcar añadida.",
+        "imagen": "https://picsum.photos/id/126/300/300"
+    },
+    {
+        "nombre": "Yogur Griego",
+        "precio": 7500,
+        "descripcion": "Yogur cremoso, alto en proteínas, 1 litro.",
+        "imagen": "https://picsum.photos/id/30/300/300"
+    },
+    {
+        "nombre": "Tomates Cherry",
+        "precio": 4200,
+        "descripcion": "Tomates orgánicos, bandeja de 500g.",
+        "imagen": "https://picsum.photos/id/13/300/300"
+    }
+]
