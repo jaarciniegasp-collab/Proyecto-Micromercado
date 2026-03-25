@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", async () => {
   let carrito = [];
   let total = 0;
+  let productosGlobal = []; // ← Guardaremos todos los productos para filtrar después
 
   // ============================
   // CARGAR HEADER, SIDEBAR Y FOOTER
@@ -18,11 +19,106 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     iniciarMenu();
     iniciarCarrito();
-    cargarProductos();
+    cargarProductos();         // Carga todos los productos al inicio
     iniciarBotonContacto();
-
+    configurarFiltros();       // ← NUEVO: asigna eventos a las categorías
   } catch (e) {
     console.error("Error cargando componentes:", e);
+  }
+
+  // ============================
+  // NUEVA FUNCIÓN: CONFIGURAR FILTROS POR CATEGORÍA
+  // ============================
+  function configurarFiltros() {
+    // Esperamos un momento a que el sidebar esté completamente renderizado
+    setTimeout(() => {
+      // Botón "Inicio" (primer enlace del menú)
+      const btnInicio = document.querySelector(".menu li a");
+      if (btnInicio) {
+        btnInicio.addEventListener("click", (e) => {
+          e.preventDefault();
+          mostrarProductosPorCategoria(null); // null = todos los productos
+          // Opcional: marcar como activo el enlace de inicio (puedes agregar estilos)
+          document.querySelectorAll(".menu li a").forEach(a => a.classList.remove("active"));
+          btnInicio.classList.add("active");
+        });
+      }
+
+      // Elementos de las subcategorías (viveres, lacteos, etc.)
+      const itemsCategoria = document.querySelectorAll(".submenu-items li a");
+      itemsCategoria.forEach(item => {
+        item.addEventListener("click", (e) => {
+          e.preventDefault();
+          const categoriaTexto = item.textContent.trim(); // ej: "Viveres"
+          // Convertimos el texto a la clave que usamos en el JSON
+          let categoriaClave = "";
+          switch (categoriaTexto) {
+            case "Viveres":
+              categoriaClave = "viveres";
+              break;
+            case "Lacteos y Huevos":
+              categoriaClave = "lacteos y huevos";
+              break;
+            case "Licores":
+              categoriaClave = "licores";
+              break;
+            case "Dulces":
+              categoriaClave = "dulces";
+              break;
+            case "Cuidado personal":
+              categoriaClave = "cuidado personal";
+              break;
+            default:
+              categoriaClave = categoriaTexto.toLowerCase();
+          }
+          mostrarProductosPorCategoria(categoriaClave);
+          // Marcar como activo el elemento seleccionado (opcional)
+          document.querySelectorAll(".menu li a").forEach(a => a.classList.remove("active"));
+          document.querySelectorAll(".submenu-items li a").forEach(a => a.classList.remove("active"));
+          item.classList.add("active");
+        });
+      });
+    }, 100); // pequeño retraso para asegurar que el DOM del sidebar ya existe
+  }
+
+  // ============================
+  // FUNCIÓN PARA MOSTRAR PRODUCTOS FILTRADOS
+  // ============================
+  function mostrarProductosPorCategoria(categoria) {
+    const contenedor = document.getElementById("productos");
+    if (!contenedor) return;
+
+    let productosFiltrados = productosGlobal;
+    if (categoria) {
+      productosFiltrados = productosGlobal.filter(p => p.categoria === categoria);
+    }
+
+    // Renderizamos las tarjetas (mismo código que en cargarProductos)
+    contenedor.innerHTML = productosFiltrados
+      .map(p => `
+        <div class="card">
+          <img src="${p.imagen}">
+          <h4>${p.nombre}</h4>
+          <p class="precio">$${p.precio.toLocaleString()}</p>
+          <button class="btn" onclick='agregarAlCarrito(${JSON.stringify(p)})'>
+            Agregar 🛒
+          </button>
+        </div>
+      `)
+      .join("");
+  }
+
+  // ============================
+  // CARGA DE PRODUCTOS DESDE JSON (MODIFICADA)
+  // ============================
+  function cargarProductos() {
+    fetch("data/productos.json")
+      .then(r => r.json())
+      .then(productos => {
+        productosGlobal = productos;               // guardamos copia global
+        mostrarProductosPorCategoria(null);       // mostramos todos al inicio
+      })
+      .catch(err => console.error("Error cargando productos:", err));
   }
 
   // ============================
@@ -38,8 +134,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       btnContacto.addEventListener("click", (e) => {
         e.preventDefault();
         footer.scrollIntoView({ behavior: "smooth" });
-
-        // Cerrar menú si está abierto
         sidebarEl?.classList.remove("active");
         overlay?.classList.remove("active");
       });
@@ -47,7 +141,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   // ============================
-  // MENÚ
+  // MENÚ LATERAL (SIDEBAR)
   // ============================
   function iniciarMenu() {
     const btnMenu = document.getElementById("btn-menu");
@@ -72,7 +166,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   // ============================
-  // CARRITO
+  // CARRITO (sin cambios)
   // ============================
   function iniciarCarrito() {
     const lista = document.getElementById("lista-carrito");
@@ -106,7 +200,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       carritoPanel.classList.remove("active");
     });
 
-    // Cerrar si clic afuera
     document.addEventListener("click", (e) => {
       if (
         !carritoPanel.contains(e.target) &&
@@ -116,7 +209,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
     });
 
-    // Eliminar producto
     document.addEventListener("click", (e) => {
       if (e.target.classList.contains("eliminar")) {
         const index = e.target.dataset.index;
@@ -126,36 +218,10 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
     });
 
-    // Función pública
     window.agregarAlCarrito = (p) => {
       carrito.push(p);
       total += p.precio;
       actualizarCarrito();
     };
   }
-
-  // ============================
-  // PRODUCTOS
-  // ============================
-  function cargarProductos() {
-    const cont = document.getElementById("productos");
-
-    fetch("data/productos.json")
-      .then(r => r.json())
-      .then(productos => {
-        cont.innerHTML = productos
-          .map(p => `
-            <div class="card">
-              <img src="${p.imagen}">
-              <h4>${p.nombre}</h4>
-              <p class="precio">$${p.precio}</p>
-              <button class="btn" onclick='agregarAlCarrito(${JSON.stringify(p)})'>
-                Agregar 🛒
-              </button>
-            </div>
-          `)
-          .join("");
-      });
-  }
-
 });

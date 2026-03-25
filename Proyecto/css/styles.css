@@ -1,5 +1,5 @@
 /* ==============================
-   ESTILOS GENERALES
+    ESTILOS GENERALES
 ============================== */
 body {
     margin: 0;
@@ -8,7 +8,7 @@ body {
 }
 
 /* ==============================
-   LOGO + HEADER
+    LOGO + HEADER
 ============================== */
 .logo-img {
     height: 150px;
@@ -30,7 +30,7 @@ body {
 }
 
 /* ==============================
-   BUSCADOR
+    BUSCADOR
 ============================== */
 .buscador {
     display: flex;
@@ -59,114 +59,114 @@ body {
 }
 
 /* ==============================
-   CARRITIO
+    CARRITIO
 ============================== */
 /* CARRITO BOTÓN */
 .carrito {
-  position: relative;
-  font-size: 24px;
-  background: white;
-  padding: 12px;
-  border-radius: 50%;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
-  cursor: pointer;
-  transition: 0.3s;
+    position: relative;
+    font-size: 24px;
+    background: white;
+    padding: 12px;
+    border-radius: 50%;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: 0.3s;
 }
 
 .carrito:hover {
-  transform: scale(1.1);
+    transform: scale(1.1);
 }
 
 /* CONTADOR ROJO */
 #contador {
-  position: absolute;
-  top: -5px;
-  right: -5px;
-  background: red;
-  color: white;
-  font-size: 12px;
-  padding: 3px 7px;
-  border-radius: 50%;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: red;
+    color: white;
+    font-size: 12px;
+    padding: 3px 7px;
+    border-radius: 50%;
 }
 
 /* PANEL DEL CARRITO */
 .carrito-panel {
-  position: fixed;
-  right: 20px;
-  top: 80px;
-  width: 300px;
-  background: white;
-  border-radius: 15px;
-  padding: 15px;
-  display: none;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-  animation: aparecer 0.3s ease;
-  z-index: 1000;
+    position: fixed;
+    right: 20px;
+    top: 80px;
+    width: 300px;
+    background: white;
+    border-radius: 15px;
+    padding: 15px;
+    display: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    animation: aparecer 0.3s ease;
+    z-index: 1000;
 }
 
 .carrito-panel.active {
-  display: block;
+    display: block;
 }
 
 @keyframes aparecer {
-  from {
+    from {
     opacity: 0;
     transform: translateY(-10px);
-  }
-  to {
+    }
+    to {
     opacity: 1;
     transform: translateY(0);
-  }
+    }
 }
 
 /* LISTA */
 .carrito-panel ul {
-  list-style: none;
-  padding: 0;
-  max-height: 200px;
-  overflow-y: auto;
+    list-style: none;
+    padding: 0;
+    max-height: 200px;
+    overflow-y: auto;
 }
 
 .carrito-panel li {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 8px 0;
-  font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 8px 0;
+    font-size: 14px;
 }
 
 /* BOTÓN ELIMINAR */
 .eliminar {
-  color: red;
-  cursor: pointer;
-  font-weight: bold;
+    color: red;
+    cursor: pointer;
+    font-weight: bold;
 }
 
 /* FOOTER */
 .carrito-footer {
-  margin-top: 10px;
-  border-top: 1px solid #ddd;
-  padding-top: 10px;
-  font-weight: bold;
-  text-align: right;
+    margin-top: 10px;
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+    font-weight: bold;
+    text-align: right;
 }
 
 .carrito-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 #cerrar-carrito {
-  cursor: pointer;
-  font-size: 18px;
-  color: red;
-  font-weight: bold;
+    cursor: pointer;
+    font-size: 18px;
+    color: red;
+    font-weight: bold;
 }
 
 
 /* ==============================
-   LAYOUT PRINCIPAL
+    LAYOUT PRINCIPAL
 ============================== */
 .layout {
     display: flex;
@@ -181,7 +181,7 @@ body {
 }
 
 /* ==============================
-   SIDEBAR
+    SIDEBAR
 ============================== */
 .sidebar {
     position: fixed;
@@ -263,17 +263,20 @@ body {
 }
 
 /* ==============================
-   PRODUCTOS
+    PRODUCTOS
 ============================== */
 .contenido {
     flex: 1;
     padding: 20px;
+    max-width: 1200px; /* opcional: limita el ancho máximo */
+    margin: 0 auto; /* centra el contenedor si hay max-width */
 }
 
 .grid {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+    justify-content: center; /* Centra las tarjetas horizontalmente */
 }
 
 .card {
@@ -407,56 +410,117 @@ button.disable {
     text-align: center;
 }
 html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 /* FOOTER */
 .footer {
-  background: #222;
-  color: white;
-  margin-top: auto;
-  padding: 20px 0;
-  text-align: center;
-  font-size: 15px;
+    background: #222;
+    color: white;
+    margin-top: auto;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 15px;
 }
 
 .footer-contenedor {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-wrap: wrap;
-  padding: 10px 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 10px 20px;
 }
 
 .footer-logo img {
-  width: 80px;
-  height: auto;
-  margin-bottom: 5px;
-}
+    width: 80px;
+    height: auto;
+    margin-bottom: 5px;
+    }
 
 .footer-logo h3 {
-  margin: 5px 0;
+    margin: 5px 0;
 }
 
 .footer-info p,
 .footer-integrantes p {
-  margin: 5px 0;
+    margin: 5px 0;
 }
 
 .footer-integrantes h4 {
-  margin-bottom: 5px;
+    margin-bottom: 5px;
 }
 
 .footer-copy {
-  border-top: 1px solid #444;
-  padding-top: 10px;
-  margin-top: 15px;
-  font-size: 14px;
+    border-top: 1px solid #444;
+    padding-top: 10px;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+/* ==============================
+    EFECTO HOVER EN TARJETAS
+============================== */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(0.92);  /* Reduce ligeramente el tamaño */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15); /* Sombra más pronunciada */
+}
+
+/* ==============================
+   TARJETAS DE PRODUCTOS
+============================== */
+.card {
+    background: white;
+    border-radius: 15px;
+    padding: 15px;
+    width: 200px;
+    text-align: center;
+    border: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card img {
+    width: 100%;
+    height: 150px;          /* Altura fija para todas las imágenes */
+    object-fit: cover;      /* Recorta la imagen sin deformarla */
+    border-radius: 10px;
+}
+
+.card h4 {
+    margin: 10px 0 5px;
+    font-size: 1rem;
+}
+
+.card .precio {
+    color: red;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.card .btn {
+    margin-top: auto;       /* Empuja el botón hacia abajo */
+    padding: 10px;
+    background: orange;
+    border-radius: 20px;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: scale(0.92);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }

@@ -1,50 +1,402 @@
 [
     {
-        "nombre": "Café Especial",
-        "precio": 12900,
-        "descripcion": "Café de origen colombiano, tueste medio, notas cítricas.",
-        "imagen": "https://picsum.photos/id/20/300/300"
+        "id": 1,
+        "nombre": "Arroz Blanco Premium",
+        "precio": 4200,
+        "imagen": "./imagenes/Arroz Blanco Premiumwebp.webp",
+        "descripcion": "Arroz blanco de grano largo, 1 kg",
+        "categoria": "viveres"
     },
     {
+        "id": 2,
+        "nombre": "Frijoles Negros",
+        "precio": 4800,
+        "imagen": "./imagenes/Frijoles Negros.webp",
+        "descripcion": "Frijoles negros enteros, 500 g",
+        "categoria": "viveres"
+    },
+    {
+        "id": 3,
         "nombre": "Aceite de Oliva",
         "precio": 18500,
-        "descripcion": "Aceite extra virgen, prensado en frío, 500ml.",
-        "imagen": "https://picsum.photos/id/127/300/300"
+        "imagen": "./imagenes/Aceite de Oliva.webp",
+        "descripcion": "Aceite de oliva extra virgen, 500 ml",
+        "categoria": "viveres"
     },
     {
-        "nombre": "Queso Campesino",
-        "precio": 9800,
-        "descripcion": "Queso fresco, ideal para acompañar tus comidas.",
-        "imagen": "https://picsum.photos/id/102/300/300"
-    },
-    {
-        "nombre": "Pan Artesanal",
-        "precio": 4500,
-        "descripcion": "Pan horneado con masa madre, 500g.",
-        "imagen": "https://picsum.photos/id/125/300/300"
-    },
-    {
-        "nombre": "Mermelada de Fresa",
-        "precio": 8900,
-        "descripcion": "Mermelada artesanal con frutos naturales, 250g.",
-        "imagen": "https://picsum.photos/id/108/300/300"
-    },
-    {
-        "nombre": "Galletas Integrales",
+        "id": 4,
+        "nombre": "Harina de Trigo",
         "precio": 3200,
-        "descripcion": "Galletas de avena y miel, sin azúcar añadida.",
-        "imagen": "https://picsum.photos/id/126/300/300"
+        "imagen": "./imagenes/Harina de Trigo.webp",
+        "descripcion": "Harina de trigo todo uso, 1 kg",
+        "categoria": "viveres"
     },
     {
+        "id": 5,
+        "nombre": "Lentejas",
+        "precio": 4300,
+        "imagen": "./imagenes/Lentejas.webp",
+        "descripcion": "Lentejas secas, 500 g",
+        "categoria": "viveres"
+    },
+    {
+        "id": 6,
+        "nombre": "Pasta Espagueti",
+        "precio": 3900,
+        "imagen": "./imagenes/Pasta Espagueti.webp",
+        "descripcion": "Espagueti de sémola, 500 g",
+        "categoria": "viveres"
+    },
+    {
+        "id": 7,
+        "nombre": "Azúcar Blanca",
+        "precio": 2800,
+        "imagen": "./imagenes/azucar blanca.jpg",
+        "descripcion": "Azúcar refinada, 1 kg",
+        "categoria": "viveres"
+    },
+    {
+        "id": 8,
+        "nombre": "Sal de Mar",
+        "precio": 2100,
+        "imagen": "./imagenes/Sal de Mar.webp",
+        "descripcion": "Sal marina fina, 500 g",
+        "categoria": "viveres"
+    },
+    {
+        "id": 9,
+        "nombre": "Atún en Agua",
+        "precio": 6800,
+        "imagen": "./imagenes/Atún en Agua.webp",
+        "descripcion": "Lata de atún claro en agua, 170 g",
+        "categoria": "viveres"
+    },
+    {
+        "id": 10,
+        "nombre": "Salsa de Tomate",
+        "precio": 5200,
+        "imagen": "./imagenes/Salsa de Tomate.webp",
+        "descripcion": "Salsa de tomate natural, 500 g",
+        "categoria": "viveres"
+    },
+    {
+        "id": 11,
+        "nombre": "Leche Entera",
+        "precio": 3800,
+        "imagen": "./imagenes/Leche Entera.webp",
+        "descripcion": "Leche pasteurizada entera, 1 litro",
+        "categoria": "lacteos y huevos"
+    },
+    {
+        "id": 12,
+        "nombre": "Yogur Natural",
+        "precio": 3200,
+        "imagen": "./imagenes/Yogur Griego.webp",
+        "descripcion": "Yogur natural sin azúcar, 125 g",
+        "categoria": "lacteos y huevos"
+    },
+    {
+        "id": 13,
+        "nombre": "Queso Fresco",
+        "precio": 9200,
+        "imagen": "./imagenes/Queso Fresco.jpg",
+        "descripcion": "Queso fresco de vaca, 250 g",
+        "categoria": "lacteos y huevos"
+    },
+    {
+        "id": 14,
+        "nombre": "Mantequilla Sin Sal",
+        "precio": 7400,
+        "imagen": "./imagenes/Mantequilla Sin Sal.webp",
+        "descripcion": "Mantequilla sin sal, 200 g",
+        "categoria": "lacteos y huevos"
+    },
+    {
+        "id": 15,
+        "nombre": "Huevos Blancos",
+        "precio": 9500,
+        "imagen": "./imagenes/Huevos Blancos.jpg",
+        "descripcion": "Docena de huevos blancos",
+        "categoria": "lacteos y huevos"
+    },
+    {
+        "id": 16,
+        "nombre": "Crema de Leche",
+        "precio": 5800,
+        "imagen": "./imagenes/Crema de Leche.webp",
+        "descripcion": "Crema de leche para cocinar, 200 ml",
+        "categoria": "lacteos y huevos"
+    },
+    {
+        "id": 17,
+        "nombre": "Queso Mozzarella",
+        "precio": 11200,
+        "imagen": "./imagenes/Queso Mozzarella.webp",
+        "descripcion": "Queso mozzarella rallado, 200 g",
+        "categoria": "lacteos y huevos"
+    },
+    {
+        "id": 18,
+        "nombre": "Leche Deslactosada",
+        "precio": 4600,
+        "imagen": "./imagenes/Leche Deslactosada.jpg",
+        "descripcion": "Leche deslactosada, 1 litro",
+        "categoria": "lacteos y huevos"
+    },
+    {
+        "id": 19,
         "nombre": "Yogur Griego",
-        "precio": 7500,
-        "descripcion": "Yogur cremoso, alto en proteínas, 1 litro.",
-        "imagen": "https://picsum.photos/id/30/300/300"
+        "precio": 5900,
+        "imagen": "./imagenes/Yogur Natural.webp",
+        "descripcion": "Yogur griego natural, 150 g",
+        "categoria": "lacteos y huevos"
     },
     {
-        "nombre": "Tomates Cherry",
-        "precio": 4200,
-        "descripcion": "Tomates orgánicos, bandeja de 500g.",
-        "imagen": "https://picsum.photos/id/13/300/300"
+        "id": 20,
+        "nombre": "Huevos Orgánicos",
+        "precio": 13800,
+        "imagen": "./imagenes/huevos organicos.jpg",
+        "descripcion": "Docena de huevos orgánicos camperos",
+        "categoria": "lacteos y huevos"
+    },
+    {
+        "id": 21,
+        "nombre": "Vino Tinto Malbec",
+        "precio": 35900,
+        "imagen": "./imagenes/Vino Tinto Malbec.webp",
+        "descripcion": "Vino tinto Malbec, 750 ml",
+        "categoria": "licores"
+    },
+    {
+        "id": 22,
+        "nombre": "Cerveza Artesanal IPA",
+        "precio": 9800,
+        "imagen": "./imagenes/Cerveza Artesanal IPA.webp",
+        "descripcion": "Cerveza artesanal IPA, 473 ml",
+        "categoria": "licores"
+    },
+    {
+        "id": 23,
+        "nombre": "Ron Añejo",
+        "precio": 48900,
+        "imagen": "./imagenes/Ron Añejo.webp",
+        "descripcion": "Ron añejo 5 años, 750 ml",
+        "categoria": "licores"
+    },
+    {
+        "id": 24,
+        "nombre": "Ginebra Premium",
+        "precio": 62500,
+        "imagen": "./imagenes/Ginebra Premium.webp",
+        "descripcion": "Ginebra premium con botánicos, 700 ml",
+        "categoria": "licores"
+    },
+    {
+        "id": 25,
+        "nombre": "Whisky Escocés",
+        "precio": 72900,
+        "imagen": "./imagenes/Whisky Escocés.jpg",
+        "descripcion": "Whisky escocés de malta, 750 ml",
+        "categoria": "licores"
+    },
+    {
+        "id": 26,
+        "nombre": "Vino Espumoso Brut",
+        "precio": 38500,
+        "imagen": "./imagenes/Vino Espumoso Brut.webp",
+        "descripcion": "Vino espumoso brut, 750 ml",
+        "categoria": "licores"
+    },
+    {
+        "id": 27,
+        "nombre": "Tequila Reposado",
+        "precio": 56900,
+        "imagen": "./imagenes/Tequila Reposado.webp",
+        "descripcion": "Tequila reposado 100% agave, 700 ml",
+        "categoria": "licores"
+    },
+    {
+        "id": 28,
+        "nombre": "Licor de Café",
+        "precio": 44800,
+        "imagen": "./imagenes/Licor de Café.jpg",
+        "descripcion": "Licor de café artesanal, 750 ml",
+        "categoria": "licores"
+    },
+    {
+        "id": 29,
+        "nombre": "Cerveza Rubia Lager",
+        "precio": 7200,
+        "imagen": "./imagenes/Cerveza Rubia Lager.png",
+        "descripcion": "Cerveza rubia tipo lager, 355 ml",
+        "categoria": "licores"
+    },
+    {
+        "id": 30,
+        "nombre": "Vino Blanco Sauvignon",
+        "precio": 31800,
+        "imagen": "./imagenes/Vino Blanco Sauvignon.webp",
+        "descripcion": "Vino blanco Sauvignon Blanc, 750 ml",
+        "categoria": "licores"
+    },
+    {
+        "id": 31,
+        "nombre": "Chocolate Amargo 70%",
+        "precio": 8900,
+        "imagen": "./imagenes/chocolate amargo.jpg",
+        "descripcion": "Tableta de chocolate amargo 70% cacao, 100 g",
+        "categoria": "dulces"
+    },
+    {
+        "id": 32,
+        "nombre": "Galletas de Mantequilla",
+        "precio": 5400,
+        "imagen": "./imagenes/Galletas de Mantequilla.webp",
+        "descripcion": "Galletas artesanales de mantequilla, 200 g",
+        "categoria": "dulces"
+    },
+    {
+        "id": 33,
+        "nombre": "Alfajores de Dulce de Leche",
+        "precio": 10800,
+        "imagen": "./imagenes/Alfajores de Dulce de Leche.webp",
+        "descripcion": "Alfajores rellenos con dulce de leche, 6 unidades",
+        "categoria": "dulces"
+    },
+    {
+        "id": 34,
+        "nombre": "Mermelada de Frutilla",
+        "precio": 8200,
+        "imagen": "./imagenes/Mermelada de Frutilla.webp",
+        "descripcion": "Mermelada de frutilla casera, 350 g",
+        "categoria": "dulces"
+    },
+    {
+        "id": 35,
+        "nombre": "Caramelos de Menta",
+        "precio": 3500,
+        "imagen": "./imagenes/Caramelos de Menta.webp",
+        "descripcion": "Caramelos suaves de menta, 100 g",
+        "categoria": "dulces"
+    },
+    {
+        "id": 36,
+        "nombre": "Torta de Chocolate",
+        "precio": 17500,
+        "imagen": "./imagenes/Torta de Chocolate.jpg",
+        "descripcion": "Porción individual de torta de chocolate",
+        "categoria": "dulces"
+    },
+    {
+        "id": 37,
+        "nombre": "Dulce de Leche Repostero",
+        "precio": 7400,
+        "imagen": "./imagenes/Dulce de Leche Repostero.webp",
+        "descripcion": "Dulce de leche clásico, 400 g",
+        "categoria": "dulces"
+    },
+    {
+        "id": 38,
+        "nombre": "Brownie de Nueces",
+        "precio": 8600,
+        "imagen": "./imagenes/Brownie de Nueces.webp",
+        "descripcion": "Brownie con nueces, 100 g",
+        "categoria": "dulces"
+    },
+    {
+        "id": 39,
+        "nombre": "Chupetines de Fruta",
+        "precio": 1900,
+        "imagen": "./imagenes/Chupetines de Fruta.jpg",
+        "descripcion": "Chupetines sabor frutal, 20 g c/u",
+        "categoria": "dulces"
+    },
+    {
+        "id": 40,
+        "nombre": "Piononos",
+        "precio": 11800,
+        "imagen": "./imagenes/Piononos.jpg",
+        "descripcion": "Piononos de crema y dulce de leche, 4 unidades",
+        "categoria": "dulces"
+    },
+    {
+        "id": 41,
+        "nombre": "Shampoo Nutritivo",
+        "precio": 14300,
+        "imagen": "./imagenes/Shampoo Nutritivo.webp",
+        "descripcion": "Shampoo nutritivo para cabello seco, 300 ml",
+        "categoria": "cuidado personal"
+    },
+    {
+        "id": 42,
+        "nombre": "Crema Hidratante Facial",
+        "precio": 25300,
+        "imagen": "./imagenes/Crema Hidratante Facial.webp",
+        "descripcion": "Crema hidratante con ácido hialurónico, 50 ml",
+        "categoria": "cuidado personal"
+    },
+    {
+        "id": 43,
+        "nombre": "Jabón de Glicerina",
+        "precio": 4800,
+        "imagen": "./imagenes/Jabón de Glicerinawebp.webp",
+        "descripcion": "Jabón de glicerina neutro, 100 g",
+        "categoria": "cuidado personal"
+    },
+    {
+        "id": 44,
+        "nombre": "Desodorante Aerosol",
+        "precio": 11200,
+        "imagen": "./imagenes/Desodorante Aerosol.webp",
+        "descripcion": "Desodorante antitranspirante, 150 ml",
+        "categoria": "cuidado personal"
+    },
+    {
+        "id": 45,
+        "nombre": "Pasta Dental Blanqueadora",
+        "precio": 7600,
+        "imagen": "./imagenes/Pasta Dental Blanqueadora.jpg",
+        "descripcion": "Pasta dental con flúor, 90 g",
+        "categoria": "cuidado personal"
+    },
+    {
+        "id": 46,
+        "nombre": "Acondicionador Reparador",
+        "precio": 14300,
+        "imagen": "./imagenes/Acondicionador Reparador.webp",
+        "descripcion": "Acondicionador reparador de puntas, 300 ml",
+        "categoria": "cuidado personal"
+    },
+    {
+        "id": 47,
+        "nombre": "Protector Solar FPS 50",
+        "precio": 32600,
+        "imagen": "./imagenes/Protector Solar FPS 50.webp",
+        "descripcion": "Protector solar facial FPS 50, 50 ml",
+        "categoria": "cuidado personal"
+    },
+    {
+        "id": 48,
+        "nombre": "Gel de Baño Aromático",
+        "precio": 10200,
+        "imagen": "./imagenes/Gel de Baño Aromático.jpg",
+        "descripcion": "Gel de baño con aroma a lavanda, 500 ml",
+        "categoria": "cuidado personal"
+    },
+    {
+        "id": 49,
+        "nombre": "Toallas Húmedas",
+        "precio": 5300,
+        "imagen": "./imagenes/Toallas Húmedas.png",
+        "descripcion": "Paquete de toallas húmedas, 20 unidades",
+        "categoria": "cuidado personal"
+    },
+    {
+        "id": 50,
+        "nombre": "Crema para Manos",
+        "precio": 8100,
+        "imagen": "./imagenes/Crema para Manos.jpg",
+        "descripcion": "Crema nutritiva para manos, 75 ml",
+        "categoria": "cuidado personal"
     }
 ]
