@@ -1,53 +1,66 @@
-let signUp = document.getElementById("signUp");
-let signIn = document.getElementById("signIn");
-let ingresar = document.getElementById("ingresar");
-let nameInput = document.getElementById("nameInput");
-let title = document.getElementById("title");
+document.addEventListener("DOMContentLoaded", () => {
+  
+  let signUp = document.getElementById("signUp");
+  let signIn = document.getElementById("signIn");
+  let ingresar = document.getElementById("ingresar");
+  let nameInput = document.getElementById("nameInput");
+  let title = document.getElementById("title");
+  let inputs = document.querySelectorAll("input");
+  let mensaje = document.getElementById("mensaje");
 
-let inputs = document.querySelectorAll("input");
+  // ===== CAMBIAR A LOGIN =====
+  signIn.onclick = function () {
+    nameInput.style.display = "none"; // 🔥 mejor que maxHeight
+    title.innerHTML = "Login";
+    signUp.classList.add("disable");
+    signIn.classList.remove("disable");
+    mensaje.textContent = "";
+  };
 
-// cambiar a LOGIN
-signIn.onclick = function () {
-  nameInput.style.maxHeight = "0";
-  title.innerHTML = "Login";
-  signUp.classList.add("disable");
-  signIn.classList.remove("disable");
-};
+  // ===== CAMBIAR A REGISTRO =====
+  signUp.onclick = function () {
+    nameInput.style.display = "flex"; // 🔥 vuelve a aparecer bien
+    title.innerHTML = "Registro";
+    signUp.classList.remove("disable");
+    signIn.classList.add("disable");
+    mensaje.textContent = "";
+  };
 
-// cambiar a REGISTRO
-signUp.onclick = function () {
-  nameInput.style.maxHeight = "60px";
-  title.innerHTML = "Registro";
-  signUp.classList.remove("disable");
-  signIn.classList.add("disable");
-};
+  // ===== VALIDAR LOGIN =====
+  function validarLogin() {
+    const usuario = inputs[0].value;
+    const correo = inputs[1].value;
+    const password = inputs[2].value;
 
-// VALIDAR LOGIN
-function validarLogin() {
-  const usuario = inputs[0].value;
-  const correo = inputs[1].value;
-  const password = inputs[2].value;
+    const esLogin = title.innerHTML === "Login";
 
-  const userCorrecto = "koki";
-  const correoCorrecto = "koki@gmail.com";
-  const passCorrecto = "1234";
+    const userCorrecto = "koki";
+    const correoCorrecto = "koki@gmail.com";
+    const passCorrecto = "1234";
 
-  if (usuario === "" || correo === "" || password === "") {
-    mensaje.textContent = "⚠️ Por favor completa todos los campos";
-    return;
+    // 🔥 VALIDACIÓN SEGÚN MODO
+    if (esLogin) {
+      if (correo === "" || password === "") {
+        mensaje.textContent = "⚠️ Completa correo y contraseña";
+        return;
+      }
+    } else {
+      if (usuario === "" || correo === "" || password === "") {
+        mensaje.textContent = "⚠️ Completa todos los campos";
+        return;
+      }
+    }
+
+    // 🔥 VALIDACIÓN DE DATOS
+    if (usuario === userCorrecto &&correo === correoCorrecto &&password === passCorrecto) {
+      localStorage.setItem("auth", "true");
+      window.location.href = "index.html";
+    } else {
+      mensaje.textContent = "❌ Datos incorrectos";
+    }
   }
 
-  if (
-    usuario === userCorrecto &&
-    correo === correoCorrecto &&
-    password === passCorrecto
-  ) {
-    localStorage.setItem("auth", "true");
-    window.location.href = "index.html";
-  } else {
-    alert("Datos incorrectos ❌");
-  }
-}
+  // ===== BOTÓN INGRESAR =====
+  ingresar.addEventListener("click", validarLogin);
 
-// botón ingresar
-ingresar.addEventListener("click", validarLogin);
+});
