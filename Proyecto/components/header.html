@@ -1,12 +1,39 @@
 <header class="header">
-  <nav class="navbar">
-    <h1 class="logo">Micromercado Koki</h1>
+  <div class="header-top">
 
-    <ul class="nav-links">
-      <li><a href="#">Inicio</a></li>
-      <li><a href="#">Productos</a></li>
-      <li><a href="#">Contacto</a></li>
-      <li><a href="login.html">Salir</a></li>
-    </ul>
-  </nav>
+    <!-- BOTÓN MENÚ -->
+    <button id="btn-menu" class="menu-btn">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <img src="img/Logo.png" alt="Micromercado Koki" class="logo-img">
+
+    <div class="buscador">
+      <input type="text" placeholder="Busca en nuestro catálogo">
+      <button><i class="fas fa-search"></i></button>
+    </div>
+
+    <!-- CARRITO -->
+    <div class="carrito" id="carrito-btn">
+      <i class="fas fa-shopping-cart"></i>
+      <span id="contador">0</span>
+    </div>
+
+    <!-- PANEL DEL CARRITO -->
+    <div id="carrito-panel" class="carrito-panel">
+
+      <div class="carrito-header">
+        <h3>🛒 Tu carrito</h3>
+        <span id="cerrar-carrito">✖</span>
+      </div>
+
+      <ul id="lista-carrito"></ul>
+
+      <div class="carrito-footer">
+        <p id="total-carrito">Total: $0</p>
+      </div>
+
+    </div>
+
+  </div>
 </header>

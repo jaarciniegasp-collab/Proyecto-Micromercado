@@ -1,9 +1,32 @@
 <aside class="sidebar">
-  <h2 class="sidebar-title">Menú</h2>
-  <ul class="sidebar-menu">
-    <li><a href="#">🏠 Inicio</a></li>
-    <li><a href="#">🛒 Productos</a></li>
-    <li><a href="#">📞 Contacto</a></li>
-    <li><a href="login.html">🚪 Salir</a></li>
+
+  <!-- BOTÓN CERRAR -->
+  <div class="sidebar-header">
+    <h3>Categorias</h3>
+    <button id="btn-cerrar"><i class="fas fa-times"></i></button>
+  </div>
+
+  <ul class="menu">
+
+    <li><a href="#" class="active"><i class="fas fa-home"></i> Inicio</a></li>
+
+    <li class="submenu">
+      <div class="submenu-btn">
+        <i class="fas fa-store"></i> Productos
+        <i class="fas fa-chevron-down arrow"></i>
+      </div>
+
+      <ul class="submenu-items">
+        <li><a href="#">Viveres</a></li>
+        <li><a href="#">Lacteos y Huevos</a></li>
+        <li><a href="#">Licores</a></li>
+        <li><a href="#">Dulces</a></li>
+        <li><a href="#">Cuidado personal</a></li>
+      </ul>
+    </li>
+
+    <li><a href="#" id="ir-contacto"><i class="fas fa-phone"></i> Contacto</a></li>
+
   </ul>
+
 </aside>
