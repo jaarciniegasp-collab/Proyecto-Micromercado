@@ -15,9 +15,22 @@
   <div id="sidebar"></div>
 
   <main class="contenido">
-    <h2>Productos</h2>
+    <h2>Productos con Fetch</h2>
     <div id="productos" class="grid"></div>
+
+    <h3>Productos (versión con componente web)</h3>
+    <div id="componentes-web-container" class="grid"></div>
   </main>
+
+<template id="plantilla-producto">
+  <div class="card">
+    <img class="producto-imagen" alt="">
+    <h4 class="producto-nombre"></h4>
+    <p class="producto-precio"></p>
+    <p class="producto-descripcion"></p>
+    <button class="btn" onclick="agregarAlCarrito()">Agregar 🛒</button>
+  </div>
+</template>
 </div>
 <div id="footer"></div>
 <script src="js/componentes.js"></script>
